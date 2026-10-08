@@ -1,0 +1,52 @@
+# Parallax Labs AI/ML Internship -- consolidated requirements (Tasks 1-5)
+#
+# One file, `pip install -r requirements.txt` installs everything needed to
+# run the full pipeline end-to-end: dataset cleaning -> chunking/embeddings ->
+# Chroma ingestion -> RAG generation -> NLP metadata enrichment -> FastAPI
+# service + evaluation. (Previously split across this file plus
+# requirements_additions.txt and requirements_api_additions.txt -- those two
+# have been folded in here and removed; see git history if you need them.)
+#
+# A few packages need a one-time extra download step after `pip install`
+# completes (not handled by pip itself) -- see the notes next to spacy and
+# tiktoken below.
+
+# --- Core data handling ---
+pandas>=2.2.0
+numpy>=1.26.0
+scikit-learn>=1.4.0        # ships the 20 Newsgroups dataset loader
+
+# --- Text cleaning & language handling (Task 1) ---
+nltk>=3.8.1                # tokenization, stopwords, and VADER sentiment (Task 4)
+langdetect>=1.0.9          # detect mixed-language text
+ftfy>=6.2.0                # fixes mojibake / encoding issues
+chardet>=5.2.0             # detect raw byte encoding before decoding
+emoji>=2.11.0               # detect/strip emojis safely
+
+# --- Chunking (Task 2) ---
+tiktoken>=0.7.0             # token-aware chunking
+                             # (one-time encoding-file download on first use;
+                             #  a [WARN] here in verify_setup.py is harmless if
+                             #  your network blocks it -- doesn't affect Task 1)
+
+# --- Embeddings & vector DB (Task 2, used again by Task 3 retrieval) ---
+sentence-transformers>=3.0.0   # all-MiniLM-L6-v2 embeddings
+chromadb>=0.5.0                 # persistent vector store
+
+# --- RAG generation via DeepSeek/OpenRouter (Task 3) ---
+requests>=2.31.0            # OpenRouter API calls
+python-dotenv>=1.0.1        # loads OPENROUTER_API_KEY from a local .env file
+
+# --- Topic modeling & NER (Task 4) ---
+bertopic>=0.16.0
+spacy>=3.7.0                # after installing, run once:
+                             #   python -m spacy download en_core_web_sm
+
+# --- FastAPI service & evaluation (Task 5) ---
+fastapi>=0.115.0
+uvicorn[standard]>=0.30.0
+httpx>=0.27.0                # needed for pytest's FastAPI TestClient
+
+# --- Testing & reporting (all tasks) ---
+pytest>=8.0.0
+tqdm>=4.66.0                 # progress bars for large-dataset loops
