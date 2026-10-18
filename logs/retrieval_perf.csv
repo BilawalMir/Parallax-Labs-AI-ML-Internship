@@ -1,0 +1,14 @@
+timestamp,query,latency_sec,num_results
+2026-07-27T21:34:24,What is the main topic of the document?,0.32788,5
+2026-07-27T21:34:24,short query,0.05248,5
+2026-07-27T21:34:24,"This is a longer, more detailed query meant to test how retrieval latency and relevance change with more descriptive input text.",0.03837,5
+2026-07-27T21:34:24,completely unrelated out of domain query about spacecraft engines,0.02,5
+2026-07-27T21:52:35,What is the main topic of the document?,0.12436,5
+2026-07-27T21:52:35,short query,0.02515,5
+2026-07-27T21:52:35,"This is a longer, more detailed query meant to test how retrieval latency and relevance change with more descriptive input text.",0.02427,5
+2026-07-27T21:52:35,completely unrelated out of domain query about spacecraft engines,0.02072,5
+2026-07-27T21:56:57,how do spacecraft communicate with mission control over long distances,0.12637,5
+2026-07-27T21:56:57,what causes epileptic seizures and how are they treated,0.01816,5
+2026-07-27T21:56:57,best practices for creating a strong password,0.01807,5
+2026-07-27T21:56:57,how does encryption keep data secure,0.01937,5
+2026-07-27T21:56:57,tips for improving your writing style,0.02004,5
