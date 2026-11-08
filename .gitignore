@@ -1,12 +1,12 @@
-# Python
+﻿# Python
 __pycache__/
 *.py[cod]
 *.egg-info/
+.venv/
+venv/
+
 # Virtual environment
 ivenv/
-
-# Environment variables
-.env
 
 # Jupyter
 .ipynb_checkpoints/
